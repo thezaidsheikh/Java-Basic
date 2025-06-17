@@ -1,0 +1,5 @@
+{
+  "editor.defaultFormatter": "redhat.java",
+  "notebook.defaultFormatter": "redhat.java",
+  "editor.formatOnSave": true
+}
