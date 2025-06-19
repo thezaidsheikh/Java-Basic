@@ -82,6 +82,28 @@
  * Object construction:
  * Test obj1 = new Test();
  * Test obj2 = new Test(obj1);
+ * 
+ * this keyword:
+ * 
+ * this keyword is a reference to the current object. It is used to access the
+ * fields and methods of the current object. It is also used to pass the current
+ * object as an argument to another method.
+ * 
+ * Example:
+ * 
+ * class Test {
+ * int num;
+ * 
+ * // Constructor
+ * Test(int num) {
+ * this.num = num;
+ * }
+ * 
+ * // Method
+ * void printNumber() {
+ * System.out.println("Number = " + this.num);
+ * }
+ * }
  */
 
 public class JavaConstructor {
@@ -93,6 +115,12 @@ public class JavaConstructor {
         this.name = name;
     }
 
+    // Copy constructor
+    // JavaConstructor(JavaConstructor obj) {
+    // num = obj.num;
+    // name = obj.name;
+    // }
+
     void printNumber() {
         System.out.println("Number = " + num);
     }
@@ -102,9 +130,15 @@ public class JavaConstructor {
     }
 
     public static void main(String[] args) {
-        JavaConstructor obj = new JavaConstructor(10, "Zaid");
-        obj.name = "Faizan";
-        obj.num = 20;
+        JavaConstructor obj = new JavaConstructor(20, "Faizan");
+        obj.printNumber();
+        obj.printName();
+        // JavaConstructor obj2 = new JavaConstructor(obj);
+        JavaConstructor obj2 = obj; // Pass by reference here
+        obj2.num = 30;
+        obj2.name = "Zaid";
+        // obj2.printNumber();
+        // obj2.printName();
         obj.printNumber();
         obj.printName();
     }
