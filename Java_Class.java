@@ -94,7 +94,7 @@
  *           }
  */
 
-public class JavaClass {
+public class Java_Class {
     // Data members
     int num1 = 10;
     boolean b = true;
@@ -113,7 +113,7 @@ public class JavaClass {
         // memory.
         // While the reference variable is stored in stack memory contains the address
         // of the object.
-        JavaClass t = new JavaClass(); // Object creation
+        Java_Class t = new Java_Class(); // Object creation
         t.printNumber();
         t.printBoolean();
     }

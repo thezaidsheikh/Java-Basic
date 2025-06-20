@@ -39,7 +39,7 @@
 
 // Memory management is not a major concern with loops because the memory is released after the loop is finished.
 
-public class Loops {
+public class Java_Loops {
     public static void main(String[] args) {
         // For loop - Iterate over a range of values
         for (int i = 0; i < 5; i++) {

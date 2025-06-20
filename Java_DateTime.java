@@ -36,7 +36,7 @@
 
 import java.time.*;
 
-public class DateTime {
+public class Java_DateTime {
     public static void main(String[] args) {
         Long d1 = Instant.now().toEpochMilli();
         System.out.println(d1);

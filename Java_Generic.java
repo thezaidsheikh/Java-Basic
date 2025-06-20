@@ -1,4 +1,4 @@
-class Generic<T, V> {
+class Java_Generic<T, V> {
     T t;
     V v;
 

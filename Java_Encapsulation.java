@@ -115,7 +115,7 @@ class Bank {
     }
 }
 
-public class Encapsulation {
+public class Java_Encapsulation {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Bank bank = new Bank();

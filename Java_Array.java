@@ -34,9 +34,10 @@
 
 import java.util.Arrays;
 
-public class Array {
+public class Java_Array {
     public static void main(String[] args) {
         int[] arr1 = new int[5];
+        int[] arr4 = { 1, 2, 3, 4, 5 };
         // return hexadecimal memory address of array - string representation
         System.out.println("Memory address of array: " + arr1);
 

@@ -78,7 +78,7 @@ class Husky extends Dog {
     }
 }
 
-public class Inheritance {
+public class Java_Inheritance {
 
     public static void main(String[] args) {
         // Case 1

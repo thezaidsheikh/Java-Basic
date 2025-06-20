@@ -1,7 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileHandling {
+public class Java_FileHandling {
 
     // read char by char
     // public static void readCharByChar(String filename) {

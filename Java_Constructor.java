@@ -106,11 +106,11 @@
  * }
  */
 
-public class JavaConstructor {
+public class Java_Constructor {
     int num;
     String name;
 
-    JavaConstructor(int num, String name) {
+    Java_Constructor(int num, String name) {
         this.num = num;
         this.name = name;
     }
@@ -130,11 +130,11 @@ public class JavaConstructor {
     }
 
     public static void main(String[] args) {
-        JavaConstructor obj = new JavaConstructor(20, "Faizan");
+        Java_Constructor obj = new Java_Constructor(20, "Faizan");
         obj.printNumber();
         obj.printName();
         // JavaConstructor obj2 = new JavaConstructor(obj);
-        JavaConstructor obj2 = obj; // Pass by reference here
+        Java_Constructor obj2 = obj; // Pass by reference here
         obj2.num = 30;
         obj2.name = "Zaid";
         // obj2.printNumber();

@@ -32,7 +32,7 @@
 
 import java.util.Arrays;
 
-public class Str {
+public class Java_String {
     public static void main(String[] args) {
         String str = "Hello"; // String variable declaration
         System.out.println("String: " + str);

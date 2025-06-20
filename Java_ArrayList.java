@@ -57,6 +57,8 @@ class ARL {
         list.add(4);
         list.add(5);
         list.add(null);
+        // list.add("Hello");
+
         System.out.println("List: " + list);
 
         // Remove element

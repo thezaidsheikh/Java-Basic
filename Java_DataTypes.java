@@ -70,7 +70,7 @@
  * heap memory. The memory is allocated and deallocated by the programmer.
  */
 
-public class DataTypes {
+public class Java_DataTypes {
     public static void main(String[] args) {
         int a = 10;
         long b = 10L;

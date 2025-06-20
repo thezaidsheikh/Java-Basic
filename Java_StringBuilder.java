@@ -41,7 +41,7 @@
  * @author Zaid
  */
 
-public class StrBuilder {
+public class Java_StringBuilder {
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder("Zaid ");
         sb.append("Hello");

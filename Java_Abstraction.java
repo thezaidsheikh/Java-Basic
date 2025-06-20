@@ -64,7 +64,7 @@ class Sedan implements Car {
     }
 }
 
-public class Abstraction {
+public class Java_Abstraction {
     public static void main(String[] args) {
         Sedan sedan = new Sedan();
         sedan.startEngine();

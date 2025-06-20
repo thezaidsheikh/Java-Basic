@@ -77,7 +77,7 @@
 
 import java.util.Scanner;
 
-public class Functions {
+public class Java_Functions {
 
     // Method to add two numbers
     public static int add(int a, int b) {

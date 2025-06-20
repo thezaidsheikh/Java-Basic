@@ -5,6 +5,19 @@
  * methods with empty bodies.
  * It is used to achieve abstraction and multiple inheritance.
  * It is also used to define the blueprint of a class.
+ * It is used to loose coupling.
+ * Object of interface cannot be created.
+ * Reference of interface can be created.
+ * Constructor cannot be defined in interface.
+ * We can define variables in interface. By default they are public static
+ * final (cannot be changed).
+ * We can define methods in interface. By default they are public abstract.
+ * We can define default methods - with implementation (Java 8) in interface. By
+ * default they are public.
+ * We can define static methods - with implementation (Java 8) in interface. By
+ * default they are public static.
+ * We can define private methods - with implementation (Java 9) in interface. By
+ * default they are private.
  *
  * Memory Management:
  * Interface doesn't require any memory until it is implemented by a class.
@@ -33,9 +46,54 @@
  * Example: List interface has a nested interface called ListIterator
  */
 
-@FunctionalInterface
-interface abc {
-    void show();
+interface IMusicSystem {
+    int volume = 10; // By default it is public static final variable
+
+    // Abstract method
+    void play();
+
+    boolean isPlaying();
+
+    void stopPlaying(int ab, String ch);
+
+    // Default Methods - Java 8
+    default void getVolume(int volume) {
+        System.out.println("Volume set to " + volume);
+    }
+
+    static void setVolume(int volume) {
+        System.out.println("Volume set to " + volume);
+    }
+
+    private void privateMethod() {
+        System.out.println("Private method");
+    }
+}
+
+class Java_Interface implements IMusicSystem {
+    @Override
+    public void play() {
+        System.out.println("Playing");
+    }
+
+    @Override
+    public boolean isPlaying() {
+        return true;
+    }
+
+    @Override
+    public void stopPlaying(int ab, String ch) {
+        System.out.println("Stopped");
+    }
+
+    public static void main(String[] args) {
+        Java_Interface inter = new Java_Interface();
+        inter.play();
+        System.out.println(inter.isPlaying());
+        inter.getVolume(10);
+        IMusicSystem.setVolume(20);
+        // inter.privateMethod();
+    }
 }
 
 // 1. Make a class and implement the interface.
