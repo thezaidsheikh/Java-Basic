@@ -129,7 +129,7 @@ class ExpenseTracker {
     }
 }
 
-public class Activity {
+public class Java_ExpenseTracker {
 
     public static void main(String[] args) {
         ExpenseTracker et = new ExpenseTracker();
