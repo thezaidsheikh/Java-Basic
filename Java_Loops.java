@@ -41,37 +41,37 @@
 
 public class Java_Loops {
     public static void main(String[] args) {
-        // For loop - Iterate over a range of values
+        // * For loop - Iterate over a range of values
         for (int i = 0; i < 5; i++) {
             System.out.println(i);
         }
 
-        // While loop - Iterate until a condition is true
+        // * While loop - Iterate until a condition is true
         int i = 0;
         while (i < 5) {
             System.out.println(i);
             i++;
         }
 
-        // Do while loop - Iterate until a condition is true but at least once
+        // * Do while loop - Iterate until a condition is true but at least once
         int j = 0;
         do {
             System.out.println(j);
             j++;
         } while (j < 5);
 
-        // For each loop - Iterate over an array or collection
+        // * For each loop - Iterate over an array or collection
         int[] arr = { 1, 2, 3, 4, 5 };
         for (int num : arr) {
             System.out.println(num);
         }
 
-        // Infinite loop
+        // * Infinite loop
         // while (true) {
         // System.out.println("Infinite loop");
         // }
 
-        // Break statement - Exit a loop
+        // * Break statement - Exit a loop
         for (int k = 0; k < 5; k++) {
             if (k == 3) {
                 break;
@@ -79,7 +79,7 @@ public class Java_Loops {
             System.out.println(k);
         }
 
-        // Continue statement - Skip the current iteration
+        // * Continue statement - Skip the current iteration
         for (int l = 0; l < 5; l++) {
             if (l == 3) {
                 continue;
@@ -87,7 +87,7 @@ public class Java_Loops {
             System.out.println(l);
         }
 
-        // Nested loop
+        // * Nested loop
         for (int m = 0; m < 5; m++) {
             for (int n = 0; n < 5; n++) {
                 System.out.println(m + ", " + n);

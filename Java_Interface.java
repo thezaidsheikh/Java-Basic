@@ -46,6 +46,14 @@
  * Example: List interface has a nested interface called ListIterator
  */
 
+/**
+ * Collection (Interface) -
+ * - List (Interface) -> ArrayList, LinkedList, Stack, Vector
+ * - Queue (Interface) -> PriorityQueue, Deque, ArrayDeque, LinkedList
+ * - Set (Interface) -> HashSet, LinkedHashSet, TreeSet, EnumSet
+ * - Map (Interface) -> HashMap, LinkedHashMap, TreeMap, EnumMap
+ */
+
 interface IMusicSystem {
     int volume = 10; // By default it is public static final variable
 
