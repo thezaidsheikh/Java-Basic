@@ -1,7 +1,7 @@
-import java.time.LocalDate;
+package Activity.Expense_Tracker;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.*;
 import java.io.FileWriter;
 import java.io.*;
 
@@ -55,14 +55,14 @@ class ExpenseTracker {
     }
 
     void addExpense() {
-        System.out.println("ENTER THE AMOUNT");
+        System.out.print("ENTER THE AMOUNT: ");
         // int amt=scn.nextInt();
         int amt = Integer.parseInt(scn.nextLine());
-        System.out.println("ENTER THE CATEGORY");
+        System.out.print("ENTER THE CATEGORY: ");
         String cat = scn.nextLine();
-        System.out.println("ENTER THE NOTE");
+        System.out.print("ENTER THE NOTE: ");
         String note = scn.nextLine();
-        System.out.println("ENTER THE DATE");
+        System.out.print("ENTER THE DATE: ");
         String date = scn.nextLine();
         Expense e = new Expense(amt, cat, note, date);
         al.add(e);
@@ -77,9 +77,10 @@ class ExpenseTracker {
             return;
         } else {
             System.out.println("========ALL EXPENSES==========");
-            System.out.println("AMOUNT       CATEGORY      NOTE     DATE");
+            System.out.println("AMOUNT\t\tCATEGORY\t\tNOTE\t\tDATE");
             for (int i = 0; i < al.size(); i++) {
-                System.out.println(al.get(i));
+                System.out.println(
+                        al.get(i).amt + "\t\t" + al.get(i).cat + "\t\t" + al.get(i).note + "\t\t" + al.get(i).date);
             }
             System.out.println("=====================================");
         }
@@ -98,7 +99,7 @@ class ExpenseTracker {
 
     void loadData() {
         try {
-            Scanner filScanner = new Scanner(new File("expense.txt"));
+            Scanner filScanner = new Scanner(new File("./Activity/Expense_Tracker/expense.txt"));
             while (filScanner.hasNextLine()) {
                 String line = filScanner.nextLine();
                 String[] parts = line.split(" ");
@@ -116,7 +117,7 @@ class ExpenseTracker {
     }
 
     void saveData() {
-        try (FileWriter writer = new FileWriter("expense.txt")) {
+        try (FileWriter writer = new FileWriter("./Activity/Expense_Tracker/expense.txt", true)) {
             for (int i = 0; i < al.size(); i++) {
                 String content = al.get(i).toString();
                 writer.write(content);
