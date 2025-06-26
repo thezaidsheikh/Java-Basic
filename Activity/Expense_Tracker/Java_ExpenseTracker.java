@@ -23,11 +23,11 @@ class Expense {
     }
 }
 
-class ExpenseTracker {
-    ArrayList<Expense> al = new ArrayList<>();
+class ExpenseTracker<T> {
+    ArrayList<T> al = new ArrayList<>();
     Scanner scn = new Scanner(System.in);
 
-    void setUp() {
+    protected void setUp() {
         loadData();
         System.out.println("=========WELCOME TO EXPENSE TRACKER=====================");
         System.out.println("==========KINDLY SELECT THE OPTION======================");
@@ -35,10 +35,12 @@ class ExpenseTracker {
             System.out.println("1.ADD EXPENSE");
             System.out.println("2.VIEW ALL EXPENSES");
             System.out.println("3.SHOW TOTAL");
-            System.out.println("4.SAVE & EXIT");
+            System.out.println("4.Filter");
+            System.out.println("5.SAVE & EXIT");
             System.out.println("=======================================================");
 
             String choice = scn.nextLine();
+            System.out.println("You have selected: " + choice);
 
             if (choice.equals("1"))
                 addExpense();
@@ -47,6 +49,9 @@ class ExpenseTracker {
             else if (choice.equals("3"))
                 showTotal();
             else if (choice.equals("4")) {
+                applyFilter();
+                break;
+            } else if (choice.equals("5")) {
                 saveData();
                 break;
             } else
@@ -54,7 +59,8 @@ class ExpenseTracker {
         }
     }
 
-    void addExpense() {
+    private void addExpense() {
+        System.out.println("========================== ADD EXPENSE =============================");
         System.out.print("ENTER THE AMOUNT: ");
         // int amt=scn.nextInt();
         int amt = Integer.parseInt(scn.nextLine());
@@ -64,32 +70,34 @@ class ExpenseTracker {
         String note = scn.nextLine();
         System.out.print("ENTER THE DATE: ");
         String date = scn.nextLine();
-        Expense e = new Expense(amt, cat, note, date);
+        T e = (T) new Expense(amt, cat, note, date);
         al.add(e);
-        System.out.println("=====DATA ADDED SUCCESSFULLY===================");
+        System.out.println("===== DATA ADDED SUCCESSFULLY ====================");
         System.out.println("=====================================");
     }
 
-    void viewExpenses() {
+    private void viewExpenses() {
+        System.out.println("========================== VIEW EXPENSES =============================");
         if (al.size() == 0) {
             System.out.println("NO EXPENSES YET");
             System.out.println("=====================================");
             return;
         } else {
-            System.out.println("========ALL EXPENSES==========");
             System.out.println("AMOUNT\t\tCATEGORY\t\tNOTE\t\tDATE");
             for (int i = 0; i < al.size(); i++) {
                 System.out.println(
-                        al.get(i).amt + "\t\t" + al.get(i).cat + "\t\t" + al.get(i).note + "\t\t" + al.get(i).date);
+                        ((Expense) al.get(i)).amt + "\t\t" + ((Expense) al.get(i)).cat + "\t\t"
+                                + ((Expense) al.get(i)).note + "\t\t" + ((Expense) al.get(i)).date);
             }
             System.out.println("=====================================");
         }
     }
 
-    void showTotal() {
+    private void showTotal() {
+        System.out.println("========================== SHOW TOTAL =============================");
         int total = 0;
         for (int i = 0; i < al.size(); i++) {
-            total = total + al.get(i).amt;
+            total = total + ((Expense) al.get(i)).amt;
         }
 
         System.out.println("TOTAL EXPENSES AMT:" + total);
@@ -97,7 +105,7 @@ class ExpenseTracker {
         System.out.println("=====================================");
     }
 
-    void loadData() {
+    private void loadData() {
         try {
             Scanner filScanner = new Scanner(new File("./Activity/Expense_Tracker/expense.txt"));
             while (filScanner.hasNextLine()) {
@@ -107,7 +115,7 @@ class ExpenseTracker {
                 String cat = parts[1];
                 String note = parts[2];
                 String date = parts[3];
-                Expense e = new Expense(amt, cat, note, date);
+                T e = (T) new Expense(amt, cat, note, date);
                 al.add(e);
             }
         } catch (Exception e) {
@@ -116,10 +124,10 @@ class ExpenseTracker {
 
     }
 
-    void saveData() {
-        try (FileWriter writer = new FileWriter("./Activity/Expense_Tracker/expense.txt", true)) {
+    private void saveData() {
+        try (FileWriter writer = new FileWriter("./Activity/Expense_Tracker/expense.txt")) {
             for (int i = 0; i < al.size(); i++) {
-                String content = al.get(i).toString();
+                String content = ((Expense) al.get(i)).toString();
                 writer.write(content);
                 writer.write("\n");
             }
@@ -128,12 +136,27 @@ class ExpenseTracker {
             System.out.println("Error reading file: " + e.getMessage());
         }
     }
+
+    private void applyFilter() {
+        System.out.println("========================== APPLY FILTER =============================");
+        System.out.println("Enter the amount to filter with");
+        int amount = Integer.parseInt(scn.nextLine());
+
+        System.out.println("AMOUNT\t\tCATEGORY\t\tNOTE\t\tDATE");
+        for (int i = 0; i < al.size(); i++) {
+            if (((Expense) al.get(i)).amt >= amount) {
+                System.out.println(
+                        ((Expense) al.get(i)).amt + "\t\t" + ((Expense) al.get(i)).cat + "\t\t"
+                                + ((Expense) al.get(i)).note + "\t\t" + ((Expense) al.get(i)).date);
+            }
+        }
+    }
 }
 
 public class Java_ExpenseTracker {
 
     public static void main(String[] args) {
-        ExpenseTracker et = new ExpenseTracker();
+        ExpenseTracker<Expense> et = (ExpenseTracker<Expense>) new ExpenseTracker();
         et.setUp();
     }
 
