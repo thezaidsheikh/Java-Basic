@@ -38,21 +38,23 @@ import java.time.*;
 
 public class Java_DateTime {
     public static void main(String[] args) {
+        LocalDate d6 = LocalDate.now();
+        System.out.println("LocalDate: " + d6.toEpochSecond(LocalTime.now(), ZoneOffset.of("+05:30")));
         Long d1 = Instant.now().toEpochMilli();
-        System.out.println(d1);
+        System.out.println("Instant in milliseconds: " + d1);
         LocalDate d2 = LocalDate.of(2025, 6, 12);
-        System.out.println(d2);
+        System.out.println("LocalDate: " + d2);
         LocalDate d3 = LocalDate.parse("2025-06-12");
-        System.out.println(d3);
+        System.out.println("LocalDate parsed: " + d3);
         LocalDate d4 = LocalDate.ofYearDay(2025, 6);
-        System.out.println(d4);
+        System.out.println("LocalDate of year day: " + d4);
 
         LocalTime t1 = LocalTime.now();
-        System.out.println(t1);
+        System.out.println("LocalTime: " + t1);
         LocalTime t2 = LocalTime.of(2025, 6, 12);
-        System.out.println(t2);
+        System.out.println("LocalTime of: " + t2);
         LocalTime t3 = LocalTime.parse("2025-06-12");
-        System.out.println(t3);
+        System.out.println("LocalTime parsed: " + t3);
 
         LocalDate d5 = LocalDate.now();
         System.out.println(d5);
